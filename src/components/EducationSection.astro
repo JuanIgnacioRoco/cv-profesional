@@ -1,0 +1,83 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+
+interface EducationItem {
+  degree: string;
+  institution: string;
+  period: string;
+  details: string[];
+}
+
+interface Props {
+  items: EducationItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="section">
+  <SectionHeading
+    eyebrow="Formacion academica"
+    title="Base academica alineada con operacion e infraestructura"
+    intro="Presentacion compacta para destacar estudios formales y dejar listos los campos que puedan completarse con mas detalle mas adelante."
+  />
+
+  <div class="cards-grid">
+    {items.map((item) => (
+      <article class="info-card">
+        <div class="info-card-top">
+          <h3>{item.degree}</h3>
+          <p>{item.period || "Completar fechas"}</p>
+        </div>
+        <p class="institution">{item.institution || "Completar institucion"}</p>
+        <ul class="bullet-list">
+          {item.details.map((detail) => (
+            <li>{detail}</li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .cards-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .info-card {
+    padding: 1.15rem;
+    border: 1px solid rgba(15, 23, 42, 0.07);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.84);
+  }
+
+  .info-card-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h3,
+  .info-card-top p,
+  .institution {
+    margin: 0;
+  }
+
+  h3 {
+    color: var(--heading);
+  }
+
+  .info-card-top p,
+  .institution {
+    color: var(--text-soft);
+  }
+
+  .institution {
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+</style>

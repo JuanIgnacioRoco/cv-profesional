@@ -1,0 +1,158 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+
+interface ExperienceItem {
+  role: string;
+  company: string;
+  location: string;
+  period: string;
+  summary: string;
+  highlights: string[];
+  featured?: boolean;
+}
+
+interface Props {
+  items: ExperienceItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="section">
+  <SectionHeading
+    eyebrow="Experiencia profesional"
+    title="Trayectoria orientada a operacion, monitoreo e infraestructura"
+    intro="Orden cronologico inverso con foco en cargos y responsabilidades vinculadas a cloud, continuidad operativa, soporte de plataformas criticas y automatizacion."
+  />
+
+  <div class="timeline" role="list">
+    {items.map((item) => (
+      <article class={`timeline-item ${item.featured ? "is-featured" : ""}`} role="listitem">
+        <div class="timeline-marker" aria-hidden="true"></div>
+        <div class="timeline-card">
+          <div class="timeline-top">
+            <div>
+              <h3>{item.role}</h3>
+              <p class="timeline-meta">
+                {[item.company, item.location].filter(Boolean).join(" | ") || "Datos editables pendientes"}
+              </p>
+            </div>
+            <p class="timeline-period">{item.period || "Completar fechas"}</p>
+          </div>
+
+          <p class="timeline-summary">{item.summary}</p>
+
+          <ul class="bullet-list">
+            {item.highlights.map((point) => (
+              <li>{point}</li>
+            ))}
+          </ul>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .timeline {
+    position: relative;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 0.45rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(14, 116, 144, 0.35), rgba(14, 116, 144, 0.05));
+  }
+
+  .timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.4rem minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .timeline-marker {
+    width: 1rem;
+    height: 1rem;
+    margin-top: 1.2rem;
+    border: 3px solid rgba(255, 255, 255, 0.95);
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 6px rgba(14, 116, 144, 0.08);
+  }
+
+  .timeline-card {
+    padding: 1.15rem;
+    border: 1px solid rgba(15, 23, 42, 0.07);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.85);
+  }
+
+  .is-featured .timeline-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(246, 251, 253, 0.96));
+    border-color: rgba(14, 116, 144, 0.14);
+  }
+
+  .timeline-top {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 0.8rem;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--heading);
+  }
+
+  .timeline-meta,
+  .timeline-period,
+  .timeline-summary {
+    margin: 0;
+    color: var(--text-soft);
+  }
+
+  .timeline-meta {
+    font-weight: 600;
+  }
+
+  .timeline-period {
+    align-self: start;
+    justify-self: start;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  .timeline-summary {
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .timeline-item {
+      grid-template-columns: 2rem minmax(0, 1fr);
+    }
+
+    .timeline::before {
+      left: 0.95rem;
+    }
+
+    .timeline-top {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: start;
+    }
+
+    .timeline-period {
+      justify-self: end;
+    }
+  }
+</style>

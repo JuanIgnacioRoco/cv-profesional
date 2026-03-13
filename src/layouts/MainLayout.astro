@@ -1,0 +1,221 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+}
+
+const { title, description, ogImage = "/images/og-cover.svg" } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="theme-color" content="#0f172a" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #eef3f6;
+    --surface: rgba(255, 255, 255, 0.78);
+    --surface-strong: #ffffff;
+    --surface-muted: #e4ebf0;
+    --text: #10202d;
+    --text-soft: #526171;
+    --heading: #08121a;
+    --border: rgba(15, 23, 42, 0.08);
+    --accent: #0e7490;
+    --accent-strong: #155e75;
+    --accent-soft: rgba(14, 116, 144, 0.12);
+    --shadow: 0 20px 45px rgba(8, 18, 26, 0.08);
+    --radius-lg: 28px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
+    --container: 1160px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    color: var(--text);
+    background:
+      radial-gradient(circle at top left, rgba(14, 116, 144, 0.16), transparent 28%),
+      radial-gradient(circle at top right, rgba(21, 94, 117, 0.12), transparent 24%),
+      linear-gradient(180deg, #f6f9fb 0%, var(--bg) 55%, #edf3f7 100%);
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  :focus-visible {
+    outline: 3px solid rgba(14, 116, 144, 0.35);
+    outline-offset: 3px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 1000;
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+    color: #fff;
+    background: var(--heading);
+    transition: top 0.2s ease;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  .page-shell {
+    width: min(calc(100% - 2rem), var(--container));
+    margin: 0 auto;
+    padding: 1rem 0 4rem;
+  }
+
+  .section {
+    position: relative;
+    margin-top: 1.25rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    backdrop-filter: blur(14px);
+    box-shadow: var(--shadow);
+  }
+
+  .section-header {
+    display: grid;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .eyebrow {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-strong);
+  }
+
+  .section-title {
+    margin: 0;
+    font-size: clamp(1.55rem, 2vw, 2.15rem);
+    line-height: 1.15;
+    color: var(--heading);
+  }
+
+  .section-intro {
+    max-width: 62ch;
+    margin: 0;
+    color: var(--text-soft);
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.8rem;
+    border: 1px solid rgba(14, 116, 144, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+    color: var(--accent-strong);
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+
+  .tag-list,
+  .bullet-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .bullet-list {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .bullet-list li {
+    position: relative;
+    padding-left: 1.1rem;
+    color: var(--text-soft);
+  }
+
+  .bullet-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--accent), #22c1c3);
+  }
+
+  @media (min-width: 768px) {
+    .page-shell {
+      width: min(calc(100% - 3rem), var(--container));
+      padding-top: 1.5rem;
+      padding-bottom: 5rem;
+    }
+
+    .section {
+      margin-top: 1.5rem;
+      padding: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section {
+      padding: 2.4rem;
+    }
+  }
+</style>

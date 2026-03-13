@@ -1,0 +1,188 @@
+---
+interface Props {
+  profile: {
+    fullName: string;
+    headline: string;
+    valueProposition: string;
+    photo: {
+      src: string;
+      alt: string;
+    };
+    highlights: string[];
+  };
+  contact: {
+    email: string;
+    linkedin: string;
+    whatsapp: string;
+    location?: string;
+  };
+}
+
+const { profile, contact } = Astro.props;
+---
+
+<section class="hero section">
+  <div class="hero-copy">
+    <p class="eyebrow">Perfil profesional</p>
+    <h1>{profile.fullName}</h1>
+    <p class="hero-headline">{profile.headline}</p>
+    <p class="hero-value">{profile.valueProposition}</p>
+
+    <ul class="hero-highlights tag-list" aria-label="Fortalezas principales">
+      {profile.highlights.map((item) => (
+        <li class="pill">{item}</li>
+      ))}
+    </ul>
+
+    <div class="hero-actions">
+      <a class="button button-primary" href={`mailto:${contact.email}`}>Email</a>
+      <a class="button button-secondary" href={contact.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+      <a class="button button-secondary" href={contact.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
+    </div>
+
+    {contact.location && <p class="hero-location">{contact.location}</p>}
+  </div>
+
+  <div class="hero-photo-card">
+    <div class="hero-photo-frame">
+      <img src={profile.photo.src} alt={profile.photo.alt} width="560" height="700" loading="eager" />
+    </div>
+    <p class="hero-photo-note">Reemplaza esta imagen desde `src/content/profile.json` o actualizando el archivo en `public/images/`.</p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: grid;
+    gap: 1.5rem;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: auto -10% -30% auto;
+    width: 18rem;
+    height: 18rem;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(14, 116, 144, 0.18), transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-copy {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 1rem;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 7vw, 4.75rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--heading);
+  }
+
+  .hero-headline {
+    margin: 0;
+    max-width: 22ch;
+    font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+    font-weight: 600;
+    color: var(--accent-strong);
+  }
+
+  .hero-value {
+    max-width: 62ch;
+    margin: 0;
+    font-size: 1.02rem;
+    color: var(--text-soft);
+  }
+
+  .hero-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding-top: 0.5rem;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.7rem 1.05rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-weight: 700;
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .button:hover {
+    transform: translateY(-1px);
+  }
+
+  .button-primary {
+    color: #fff;
+    background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+  }
+
+  .button-secondary {
+    border-color: rgba(14, 116, 144, 0.18);
+    background: rgba(255, 255, 255, 0.82);
+    color: var(--heading);
+  }
+
+  .hero-location {
+    margin: 0;
+    color: var(--text-soft);
+  }
+
+  .hero-photo-card {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 0.9rem;
+    align-content: start;
+  }
+
+  .hero-photo-frame {
+    overflow: hidden;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: calc(var(--radius-lg) - 4px);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(228, 235, 240, 0.95)),
+      var(--surface-strong);
+    box-shadow: 0 22px 44px rgba(8, 18, 26, 0.12);
+  }
+
+  .hero-photo-frame img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+
+  .hero-photo-note {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--text-soft);
+  }
+
+  @media (min-width: 900px) {
+    .hero {
+      grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.85fr);
+      align-items: center;
+      padding: 2.4rem;
+    }
+  }
+</style>

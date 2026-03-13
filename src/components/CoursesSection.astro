@@ -1,0 +1,67 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+
+interface CourseItem {
+  name: string;
+  institution: string;
+  period: string;
+}
+
+interface Props {
+  items: CourseItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="section">
+  <SectionHeading
+    eyebrow="Cursos"
+    title="Actualizacion focalizada en herramientas y gestion"
+    intro="Bloque breve para reforzar formacion complementaria sin sobrecargar la lectura."
+  />
+
+  <div class="compact-grid">
+    {items.map((item) => (
+      <article class="compact-card">
+        <h3>{item.name}</h3>
+        <p>{[item.institution, item.period].filter(Boolean).join(" | ") || "Completar institucion o fecha"}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .compact-grid {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .compact-card {
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(15, 23, 42, 0.07);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.82);
+  }
+
+  h3,
+  p {
+    margin: 0;
+  }
+
+  h3 {
+    color: var(--heading);
+    font-size: 1.02rem;
+  }
+
+  p {
+    margin-top: 0.35rem;
+    color: var(--text-soft);
+  }
+
+  @media (min-width: 768px) {
+    .compact-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

@@ -1,0 +1,24 @@
+{
+  "fullName": "Juan Ignacio Roco",
+  "headline": "Ingeniero en Informatica | Infraestructura Cloud, Monitoreo y Operaciones TI",
+  "valueProposition": "Mas de 10 anos impulsando continuidad operativa, monitoreo, soporte de plataformas criticas y automatizacion en entornos corporativos y cloud.",
+  "photo": {
+    "src": "/images/profile-placeholder.svg",
+    "alt": "Espacio reservado para fotografia profesional de Juan Ignacio Roco"
+  },
+  "summary": [
+    "Ingeniero en Informatica con mas de 10 anos de experiencia en operaciones TI, monitoreo de infraestructura, soporte tecnico, implementaciones tecnologicas y administracion de plataformas cloud.",
+    "Su trayectoria incluye trabajo en entornos Microsoft, AWS, Azure y GCP, con foco en continuidad operativa, documentacion tecnica, control de costos TI, coordinacion con proveedores y soporte a plataformas criticas para organizaciones de los sectores financiero, datacenter, streaming e industrial.",
+    "Combina experiencia en infraestructura y observabilidad con automatizacion operativa, scripting y desarrollo en Python para monitoreo, integracion de APIs, validaciones y generacion de reportes, aportando una ejecucion confiable, estructurada y orientada a mejora continua."
+  ],
+  "highlights": [
+    "Operaciones TI y continuidad operativa",
+    "Cloud, infraestructura y monitoreo",
+    "Automatizacion, scripting y Python",
+    "Soporte a plataformas criticas y documentacion tecnica"
+  ],
+  "seo": {
+    "title": "Juan Ignacio Roco | Perfil Profesional en Cloud, Monitoreo y Operaciones TI",
+    "description": "Perfil profesional online de Juan Ignacio Roco, Ingeniero en Informatica con experiencia en operaciones TI, monitoreo, infraestructura, cloud, automatizacion y soporte de plataformas criticas."
+  }
+}

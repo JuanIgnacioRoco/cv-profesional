@@ -1,0 +1,79 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+
+interface SkillGroup {
+  category: string;
+  items: string[];
+}
+
+interface Props {
+  items: SkillGroup[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="section">
+  <SectionHeading
+    eyebrow="Competencias tecnicas"
+    title="Capacidades organizadas por areas clave del perfil"
+    intro="Agrupacion pensada para lectura rapida por parte de equipos de seleccion tecnica, operaciones, cloud e infraestructura."
+  />
+
+  <div class="skills-grid">
+    {items.map((group) => (
+      <article class="skill-card">
+        <h3>{group.category}</h3>
+        <ul class="tag-list skill-tags">
+          {group.items.map((item) => (
+            <li class="skill-tag">{item}</li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .skills-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .skill-card {
+    padding: 1.1rem;
+    border: 1px solid rgba(15, 23, 42, 0.07);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.82);
+  }
+
+  .skill-card h3 {
+    margin: 0 0 0.9rem;
+    font-size: 1.02rem;
+    color: var(--heading);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .skill-tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.3rem;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    background: var(--surface-muted);
+    color: var(--heading);
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+
+  @media (min-width: 768px) {
+    .skills-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

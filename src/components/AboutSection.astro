@@ -1,0 +1,44 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+
+interface Props {
+  summary: string[];
+}
+
+const { summary } = Astro.props;
+---
+
+<section class="section">
+  <SectionHeading
+    eyebrow="Sobre mi"
+    title="Perfil con foco en continuidad, operacion y criterio tecnico"
+    intro="Una presentacion sintetica y legible para responsables de contratacion que necesitan entender alcance, seniority y capacidad de ejecucion."
+  />
+
+  <div class="about-grid">
+    {summary.map((paragraph) => (
+      <p>{paragraph}</p>
+    ))}
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .about-grid p {
+    margin: 0;
+    max-width: 72ch;
+    color: var(--text-soft);
+    font-size: 1rem;
+  }
+
+  @media (min-width: 900px) {
+    .about-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+  }
+</style>

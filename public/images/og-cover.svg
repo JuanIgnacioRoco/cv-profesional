@@ -1,0 +1,20 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#EDF3F7"/>
+  <rect x="44" y="44" width="1112" height="542" rx="36" fill="url(#paint0_linear)"/>
+  <rect x="92" y="98" width="420" height="36" rx="18" fill="#0E7490" fill-opacity="0.16"/>
+  <rect x="92" y="160" width="558" height="90" rx="24" fill="#0B1721" fill-opacity="0.95"/>
+  <rect x="92" y="280" width="660" height="28" rx="14" fill="#526171" fill-opacity="0.28"/>
+  <rect x="92" y="326" width="612" height="28" rx="14" fill="#526171" fill-opacity="0.18"/>
+  <rect x="92" y="410" width="168" height="54" rx="27" fill="#155E75"/>
+  <rect x="280" y="410" width="190" height="54" rx="27" fill="white" fill-opacity="0.78"/>
+  <rect x="490" y="410" width="190" height="54" rx="27" fill="white" fill-opacity="0.78"/>
+  <rect x="820" y="120" width="254" height="340" rx="28" fill="white" fill-opacity="0.72"/>
+  <circle cx="947" cy="220" r="68" fill="#C7D7E0"/>
+  <path d="M839 389C839 330.458 886.458 283 945 283H949C1007.54 283 1055 330.458 1055 389V392H839V389Z" fill="#C7D7E0"/>
+  <defs>
+    <linearGradient id="paint0_linear" x1="98" y1="56" x2="1117" y2="562" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FBFD"/>
+      <stop offset="1" stop-color="#DCE8EE"/>
+    </linearGradient>
+  </defs>
+</svg>

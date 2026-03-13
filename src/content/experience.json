@@ -1,0 +1,122 @@
+[
+  {
+    "role": "Supervisor de TI",
+    "company": "Eral-Chile S.A.",
+    "location": "Santiago, Chile",
+    "period": "Junio 2025 - Actualidad",
+    "summary": "Gestion del area TI, incluyendo infraestructura on-premise, servicios cloud y soporte operativo.",
+    "highlights": [
+      "Administracion de servidores fisicos, Active Directory, SAP, File Server y firewall OPNsense.",
+      "Migracion de File Server a SharePoint Online, incluyendo planificacion, ejecucion, estructura documental y validaciones.",
+      "Implementacion de politicas de seguridad y administracion de dispositivos con Microsoft Intune y Azure AD.",
+      "Coordinacion con proveedores y soporte especializado para continuidad operativa.",
+      "Gestion de respaldos en AWS y seguimiento de costos TI.",
+      "Documentacion de configuraciones, procedimientos y activos tecnologicos.",
+      "Desarrollo de scripts en Python para automatizacion de tareas operativas, validaciones y generacion de reportes."
+    ],
+    "featured": true
+  },
+  {
+    "role": "Docente de Informatica",
+    "company": "Instituto Profesional San Sebastian",
+    "location": "Santiago, Chile",
+    "period": "Julio 2025 - Actualidad",
+    "summary": "Docencia en asignaturas relacionadas con arquitectura cloud y servicios AWS.",
+    "highlights": [
+      "Apoyo a estudiantes en fundamentos de infraestructura, servicios cloud y buenas practicas tecnicas.",
+      "Preparacion de material formativo y apoyo en actividades practicas."
+    ],
+    "featured": true
+  },
+  {
+    "role": "Operations Manager",
+    "company": "Mediastream SPA",
+    "location": "Santiago, Chile",
+    "period": "Enero 2022 - Enero 2025",
+    "summary": "Monitoreo de infraestructura, aplicaciones y servicios cloud en AWS, Azure y GCP.",
+    "highlights": [
+      "Uso de Datadog para metricas, alertas, logs y seguimiento de disponibilidad.",
+      "Seguimiento de entornos con Kubernetes para revision de performance, disponibilidad y consumo de recursos.",
+      "Desarrollo de scripts en Python para integracion de APIs, consolidacion de informacion de monitoreo y generacion de reportes operativos.",
+      "Desarrollo de dashboards en Power BI para seguimiento de uptime, trafico, latencia y consumo.",
+      "Coordinacion con equipos internos y proveedores para escalamiento y cumplimiento de SLA.",
+      "Revision y optimizacion de costos operativos en entornos cloud."
+    ],
+    "featured": true
+  },
+  {
+    "role": "Lider de Proyectos",
+    "company": "Netglobalis S.A.",
+    "location": "Santiago, Chile",
+    "period": "Noviembre 2020 - Diciembre 2021",
+    "summary": "Coordinacion de implementaciones tecnologicas en datacenters y clientes corporativos.",
+    "highlights": [
+      "Despliegue de plataformas de monitoreo como Pandora FMS, Nagios, SolarWinds, OpManager y PRTG.",
+      "Seguimiento de avance, validacion tecnica y coordinacion entre equipos.",
+      "Documentacion de arquitectura, configuraciones y procedimientos de escalamiento.",
+      "Apoyo en proyectos de virtualizacion y continuidad operacional."
+    ],
+    "featured": true
+  },
+  {
+    "role": "Supervisor de Monitoreo",
+    "company": "Netglobalis S.A.",
+    "location": "Santiago, Chile",
+    "period": "Julio 2019 - Octubre 2020",
+    "summary": "Supervision de equipo 24/7 para monitoreo de plataformas criticas en banca, retail y servicios TI.",
+    "highlights": [
+      "Administracion y seguimiento de herramientas de monitoreo y seguridad.",
+      "Revision de eventos, tendencias y reincidencias para acciones preventivas.",
+      "Escalamiento de incidentes y coordinacion con areas tecnicas y proveedores.",
+      "Elaboracion de reportes de estado y seguimiento de plataformas.",
+      "Desarrollo en Python de una plataforma interna que unificaba en una sola vista el estado y alertas de multiples herramientas de monitoreo mediante scraping e integracion de APIs."
+    ],
+    "featured": true
+  },
+  {
+    "role": "Soporte Tecnico / Helpdesk",
+    "company": "Netglobalis S.A.",
+    "location": "Santiago, Chile",
+    "period": "Noviembre 2016 - Junio 2019",
+    "summary": "Soporte tecnico presencial y remoto a usuarios, con foco en infraestructura y servicios corporativos.",
+    "highlights": [
+      "Monitoreo de infraestructura Linux y Windows, redes y sistemas de respaldo.",
+      "Administracion de Active Directory, antivirus corporativo y cuentas de usuario.",
+      "Administracion de File Server, Exchange y soporte a entornos virtualizados en VMware.",
+      "Inventario de activos tecnologicos y software licenciado.",
+      "Elaboracion de informes tecnicos y apoyo operativo a clientes corporativos."
+    ],
+    "featured": false
+  },
+  {
+    "role": "Tecnico Especialista (Grupo Security)",
+    "company": "Sonda S.A.",
+    "location": "Santiago, Chile",
+    "period": "2015 - 2016",
+    "summary": "Atencion en terreno a usuarios de Banco Security y empresas del Grupo Security.",
+    "highlights": [
+      "Resolucion de incidentes de microinformatica y soporte tecnico especializado.",
+      "Despliegue de aplicaciones centralizadas mediante SCCM.",
+      "Planificacion de pruebas en terreno para implementacion de aplicativos.",
+      "Redaccion de manuales de instalacion, solucion de errores e informes tecnicos.",
+      "Coordinacion con areas tecnicas para validacion de cambios e incidencias."
+    ],
+    "featured": false
+  },
+  {
+    "role": "Tecnico Especialista - Proyecto Migracion Windows 7 (Grupo Security)",
+    "company": "GM S.A.",
+    "location": "Santiago, Chile",
+    "period": "2013 - 2014",
+    "summary": "Participacion en proyecto de migracion de equipos para Banco Security y empresas del Grupo Security.",
+    "highlights": [
+      "Planificacion semanal de equipos a migrar y validacion de informacion tecnica.",
+      "Ejecucion de respaldos en red previos a migracion.",
+      "Operacion de consola SCCM para apoyo en despliegues.",
+      "Instalacion y configuracion de aplicativos corporativos.",
+      "Escalamiento de incompatibilidades a areas tecnicas correspondientes.",
+      "Soporte en terreno durante el proceso de migracion."
+    ],
+    "featured": false
+  }
+]

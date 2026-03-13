@@ -1,0 +1,62 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+
+interface CertificationItem {
+  name: string;
+  issuer: string;
+  year: string;
+}
+
+interface Props {
+  items: CertificationItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="section">
+  <SectionHeading
+    eyebrow="Certificaciones y especializaciones"
+    title="Credenciales que refuerzan experiencia tecnica y criterio operativo"
+    intro="Presentacion sobria para facilitar lectura rapida y validacion de especializacion por parte de reclutadores."
+  />
+
+  <ul class="cert-grid tag-list">
+    {items.map((item) => (
+      <li class="cert-card">
+        <strong>{item.name}</strong>
+        <span>{[item.issuer, item.year].filter(Boolean).join(" | ") || "Completar emisor o ano"}</span>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .cert-grid {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .cert-card {
+    display: grid;
+    gap: 0.35rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(14, 116, 144, 0.14);
+    border-radius: var(--radius-md);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(247, 251, 252, 0.88));
+  }
+
+  .cert-card strong {
+    color: var(--heading);
+  }
+
+  .cert-card span {
+    color: var(--text-soft);
+  }
+
+  @media (min-width: 768px) {
+    .cert-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

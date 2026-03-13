@@ -1,0 +1,25 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/Hero.astro";
+import AboutSection from "../components/AboutSection.astro";
+import ExperienceSection from "../components/ExperienceSection.astro";
+import EducationSection from "../components/EducationSection.astro";
+import CoursesSection from "../components/CoursesSection.astro";
+import CertificationsSection from "../components/CertificationsSection.astro";
+import SkillsSection from "../components/SkillsSection.astro";
+import ContactSection from "../components/ContactSection.astro";
+import { profile, experience, education, courses, certifications, skills, contact } from "../data/site";
+---
+
+<MainLayout title={profile.seo.title} description={profile.seo.description}>
+  <main id="main-content" class="page-shell">
+    <Hero profile={profile} contact={contact} />
+    <AboutSection summary={profile.summary} />
+    <ExperienceSection items={experience} />
+    <EducationSection items={education} />
+    <CoursesSection items={courses} />
+    <CertificationsSection items={certifications} />
+    <SkillsSection items={skills} />
+    <ContactSection contact={contact} />
+  </main>
+</MainLayout>
