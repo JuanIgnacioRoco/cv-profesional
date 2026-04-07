@@ -34,14 +34,23 @@ const { items } = Astro.props;
 <style>
   .compact-grid {
     display: grid;
-    gap: 0.9rem;
+    gap: 1rem;
   }
 
   .compact-card {
-    padding: 1rem 1.1rem;
-    border: 1px solid rgba(15, 23, 42, 0.07);
+    padding: 1.25rem 1.35rem;
+    border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    background: rgba(255, 255, 255, 0.82);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .compact-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
   }
 
   h3,
@@ -50,13 +59,16 @@ const { items } = Astro.props;
   }
 
   h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
     color: var(--heading);
-    font-size: 1.02rem;
   }
 
   p {
-    margin-top: 0.35rem;
+    margin-top: 0.5rem;
     color: var(--text-soft);
+    font-size: 0.92rem;
   }
 
   @media (min-width: 768px) {

@@ -57,57 +57,74 @@ const { items } = Astro.props;
   .timeline {
     position: relative;
     display: grid;
-    gap: 1rem;
+    gap: 1.25rem;
   }
 
   .timeline::before {
     content: "";
     position: absolute;
-    left: 0.45rem;
-    top: 0.5rem;
-    bottom: 0.5rem;
+    left: 0.5rem;
+    top: 1.5rem;
+    bottom: 1.5rem;
     width: 2px;
-    background: linear-gradient(180deg, rgba(14, 116, 144, 0.35), rgba(14, 116, 144, 0.05));
+    background: linear-gradient(180deg, var(--accent), rgba(5, 150, 105, 0.1));
   }
 
   .timeline-item {
     position: relative;
     display: grid;
     grid-template-columns: 1.4rem minmax(0, 1fr);
-    gap: 1rem;
+    gap: 1.25rem;
   }
 
   .timeline-marker {
     width: 1rem;
     height: 1rem;
-    margin-top: 1.2rem;
-    border: 3px solid rgba(255, 255, 255, 0.95);
+    margin-top: 1.4rem;
+    border: 3px solid var(--surface);
     border-radius: 999px;
     background: var(--accent);
-    box-shadow: 0 0 0 6px rgba(14, 116, 144, 0.08);
+    box-shadow: 0 0 0 5px rgba(5, 150, 105, 0.12);
   }
 
   .timeline-card {
-    padding: 1.15rem;
-    border: 1px solid rgba(15, 23, 42, 0.07);
+    padding: 1.5rem;
+    border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    background: rgba(255, 255, 255, 0.85);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .timeline-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
   }
 
   .is-featured .timeline-card {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(246, 251, 253, 0.96));
-    border-color: rgba(14, 116, 144, 0.14);
+    background: linear-gradient(180deg, var(--surface), #f8fafc);
+    border-color: rgba(5, 150, 105, 0.2);
+  }
+
+  .is-featured .timeline-card:hover {
+    border-color: var(--accent);
   }
 
   .timeline-top {
     display: grid;
     gap: 0.75rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
   }
 
   h3 {
     margin: 0;
-    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
     color: var(--heading);
   }
 
@@ -125,16 +142,17 @@ const { items } = Astro.props;
   .timeline-period {
     align-self: start;
     justify-self: start;
-    padding: 0.3rem 0.7rem;
+    padding: 0.35rem 0.8rem;
     border-radius: 999px;
     background: var(--accent-soft);
     color: var(--accent-strong);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
   }
 
   .timeline-summary {
     margin-bottom: 1rem;
+    line-height: 1.6;
   }
 
   @media (min-width: 768px) {
@@ -144,6 +162,10 @@ const { items } = Astro.props;
 
     .timeline::before {
       left: 0.95rem;
+    }
+
+    .timeline-card {
+      padding: 1.75rem;
     }
 
     .timeline-top {

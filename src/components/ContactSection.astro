@@ -49,7 +49,7 @@ const { contact } = Astro.props;
     width: 14rem;
     height: 14rem;
     border-radius: 999px;
-    background: radial-gradient(circle, rgba(14, 116, 144, 0.16), transparent 70%);
+    background: radial-gradient(circle, rgba(5, 150, 105, 0.1), transparent 70%);
     pointer-events: none;
   }
 
@@ -57,31 +57,32 @@ const { contact } = Astro.props;
     position: relative;
     z-index: 1;
     display: grid;
-    gap: 0.9rem;
+    gap: 1rem;
   }
 
   .contact-link {
     display: grid;
-    gap: 0.25rem;
-    padding: 1rem 1.1rem;
-    border: 1px solid rgba(14, 116, 144, 0.12);
+    gap: 0.3rem;
+    padding: 1.25rem 1.35rem;
+    border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    background: rgba(255, 255, 255, 0.84);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
     transition:
       transform 0.2s ease,
-      border-color 0.2s ease,
-      background-color 0.2s ease;
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
   }
 
   .contact-link:hover {
-    transform: translateY(-2px);
-    border-color: rgba(14, 116, 144, 0.28);
-    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-md);
   }
 
   .contact-label {
-    color: var(--accent-strong);
-    font-size: 0.85rem;
+    color: var(--accent);
+    font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
