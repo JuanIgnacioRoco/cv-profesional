@@ -58,7 +58,7 @@ import { profile, experience, education, courses, certifications, skills, contac
   }
 
   .anchor-block {
-    scroll-margin-top: 5.5rem;
+    scroll-margin-top: 4.5rem;
   }
 
   .block-wide {
@@ -68,7 +68,13 @@ import { profile, experience, education, courses, certifications, skills, contac
   @media (min-width: 980px) {
     .content-layout {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      column-gap: 1.4rem;
+      column-gap: 1.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .content-layout {
+      gap: 0;
     }
   }
 </style>

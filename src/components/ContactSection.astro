@@ -44,12 +44,12 @@ const { contact } = Astro.props;
   .contact-section::after {
     content: "";
     position: absolute;
-    right: -4rem;
-    bottom: -4rem;
-    width: 14rem;
-    height: 14rem;
+    right: -3rem;
+    bottom: -3rem;
+    width: 12rem;
+    height: 12rem;
     border-radius: 999px;
-    background: radial-gradient(circle, rgba(5, 150, 105, 0.1), transparent 70%);
+    background: radial-gradient(circle, rgba(5, 150, 105, 0.06), transparent 70%);
     pointer-events: none;
   }
 
@@ -57,45 +57,43 @@ const { contact } = Astro.props;
     position: relative;
     z-index: 1;
     display: grid;
-    gap: 1rem;
+    gap: 0.875rem;
   }
 
   .contact-link {
     display: grid;
-    gap: 0.3rem;
-    padding: 1.25rem 1.35rem;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    background: var(--surface);
-    box-shadow: var(--shadow-sm);
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease,
-      border-color 0.2s ease;
+    gap: 0.25rem;
+    padding: 1.125rem 1.25rem;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-xs);
+    transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
 
   .contact-link:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     border-color: var(--accent);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-glass);
   }
 
   .contact-label {
     color: var(--accent);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
   }
 
   .contact-link strong {
     color: var(--heading);
-    font-size: 1rem;
+    font-size: 0.9375rem;
   }
 
   @media (min-width: 768px) {
     .contact-actions {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
     }
   }
 </style>
