@@ -1,0 +1,102 @@
+---
+interface Props {
+  name: string;
+}
+
+const { name } = Astro.props;
+---
+
+<header class="top-nav" aria-label="Navegacion principal">
+  <div class="top-nav-inner">
+    <a class="brand" href="#inicio">{name}</a>
+    <nav class="quick-links" aria-label="Enlaces rapidos">
+      <a href="#experiencia">Experiencia</a>
+      <a href="#formacion">Formacion</a>
+      <a href="#skills">Skills</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    border-bottom: 1px solid var(--border);
+    background: color-mix(in srgb, var(--surface) 92%, transparent);
+    backdrop-filter: blur(10px);
+  }
+
+  .top-nav-inner {
+    width: min(calc(100% - 1.5rem), var(--container));
+    margin: 0 auto;
+    min-height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .brand {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--heading);
+    letter-spacing: 0.01em;
+  }
+
+  .quick-links {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .quick-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .quick-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.45rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--text);
+    white-space: nowrap;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .quick-links a:hover {
+    border-color: var(--accent);
+    color: var(--accent-strong);
+    transform: translateY(-1px);
+  }
+
+  @media (min-width: 768px) {
+    .top-nav-inner {
+      width: min(calc(100% - 3rem), var(--container));
+    }
+
+    .brand {
+      font-size: 1rem;
+    }
+
+    .quick-links {
+      gap: 0.6rem;
+    }
+
+    .quick-links a {
+      min-height: 2.5rem;
+      padding: 0.45rem 0.95rem;
+      font-size: 0.86rem;
+    }
+  }
+</style>

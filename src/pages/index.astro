@@ -1,5 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import TopNav from "../components/TopNav.astro";
 import Hero from "../components/Hero.astro";
 import AboutSection from "../components/AboutSection.astro";
 import ExperienceSection from "../components/ExperienceSection.astro";
@@ -12,14 +13,62 @@ import { profile, experience, education, courses, certifications, skills, contac
 ---
 
 <MainLayout title={profile.seo.title} description={profile.seo.description}>
+  <TopNav name={profile.fullName} />
   <main id="main-content" class="page-shell">
-    <Hero profile={profile} contact={contact} />
-    <AboutSection summary={profile.summary} />
-    <ExperienceSection items={experience} />
-    <EducationSection items={education} />
-    <CoursesSection items={courses} />
-    <CertificationsSection items={certifications} />
-    <SkillsSection items={skills} />
-    <ContactSection contact={contact} />
+    <div id="inicio" class="anchor-block block-wide">
+      <Hero profile={profile} contact={contact} />
+    </div>
+
+    <div class="content-layout">
+      <div class="anchor-block block-wide">
+        <AboutSection summary={profile.summary} />
+      </div>
+
+      <div id="experiencia" class="anchor-block block-wide">
+        <ExperienceSection items={experience} />
+      </div>
+
+      <div id="formacion" class="anchor-block">
+        <EducationSection items={education} />
+      </div>
+
+      <div class="anchor-block">
+        <CoursesSection items={courses} />
+      </div>
+
+      <div class="anchor-block">
+        <CertificationsSection items={certifications} />
+      </div>
+
+      <div id="skills" class="anchor-block">
+        <SkillsSection items={skills} />
+      </div>
+
+      <div id="contacto" class="anchor-block block-wide">
+        <ContactSection contact={contact} />
+      </div>
+    </div>
   </main>
 </MainLayout>
+
+<style>
+  .content-layout {
+    display: grid;
+    gap: 0;
+  }
+
+  .anchor-block {
+    scroll-margin-top: 5.5rem;
+  }
+
+  .block-wide {
+    grid-column: 1 / -1;
+  }
+
+  @media (min-width: 980px) {
+    .content-layout {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 1.4rem;
+    }
+  }
+</style>
