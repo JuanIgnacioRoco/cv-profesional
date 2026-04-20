@@ -13,33 +13,81 @@ const { summary, tinted } = Astro.props;
   <SectionHeading
     eyebrow="Sobre mi"
     title="Perfil con foco en continuidad, operacion y criterio tecnico"
-    intro="Una presentacion sintetica y legible para responsables de contratacion que necesitan entender alcance, seniority y capacidad de ejecucion."
   />
 
-  <div class="about-grid">
-    {summary.map((paragraph) => (
-      <p>{paragraph}</p>
-    ))}
+  <div class="stats-row">
+    <div class="stat-item">
+      <span class="stat-value">10+</span>
+      <span class="stat-label">Anos de experiencia</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value">AWS · Azure · GCP</span>
+      <span class="stat-label">Multi-cloud</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value">NOC 24/7</span>
+      <span class="stat-label">Ops criticas</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value">Python</span>
+      <span class="stat-label">Automatizacion</span>
+    </div>
   </div>
+
+  <p class="about-bio">{summary[0]}</p>
 </section>
 
 <style>
-  .about-grid {
+  .stats-row {
     display: grid;
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.875rem;
+    margin-bottom: 1.25rem;
   }
 
-  .about-grid p {
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-xs);
+  }
+
+  .stat-value {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .about-bio {
     margin: 0;
     max-width: 72ch;
     color: var(--text-secondary);
     font-size: 1rem;
+    line-height: 1.65;
   }
 
-  @media (min-width: 900px) {
-    .about-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.25rem;
+  @media (min-width: 600px) {
+    .stats-row {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
     }
   }
 </style>
