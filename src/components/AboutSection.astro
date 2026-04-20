@@ -40,7 +40,7 @@ const { summary, tinted } = Astro.props;
 <style>
   .stats-row {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.875rem;
     margin-bottom: 1.25rem;
   }
@@ -54,6 +54,7 @@ const { summary, tinted } = Astro.props;
     border-radius: var(--radius-md);
     background: var(--bg-card);
     box-shadow: var(--shadow-xs);
+    min-width: 0;
   }
 
   .stat-value {
@@ -62,6 +63,7 @@ const { summary, tinted } = Astro.props;
     font-weight: 800;
     color: var(--accent);
     line-height: 1.1;
+    overflow-wrap: break-word;
   }
 
   .stat-label {
@@ -82,7 +84,7 @@ const { summary, tinted } = Astro.props;
 
   @media (min-width: 600px) {
     .stats-row {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 1rem;
     }
 
