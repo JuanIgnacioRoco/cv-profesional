@@ -1,6 +1,6 @@
 [
   {
-    "category": "Cloud y virtualizacion",
+    "category": "Cloud y virtualización",
     "items": ["AWS", "Azure", "GCP", "VMware", "Veeam", "SharePoint Online"]
   },
   {
@@ -8,11 +8,11 @@
     "items": ["Datadog", "Pandora FMS", "Nagios", "OpManager", "SolarWinds", "Splunk", "PRTG"]
   },
   {
-    "category": "Infraestructura y administracion de sistemas",
+    "category": "Infraestructura y administración de sistemas",
     "items": ["Windows Server", "Linux", "Active Directory", "Azure AD", "Microsoft Intune", "Exchange", "SAP", "File Server", "OPNsense", "OpenVMS"]
   },
   {
-    "category": "Scripting y automatizacion",
+    "category": "Scripting y automatización",
     "items": ["Python", "PowerShell", "Bash"]
   },
   {
@@ -20,7 +20,7 @@
     "items": ["Power BI", "SQL Server", "Excel Avanzado"]
   },
   {
-    "category": "Contenedores y orquestacion",
+    "category": "Contenedores y orquestación",
     "items": ["Kubernetes"]
   }
 ]
