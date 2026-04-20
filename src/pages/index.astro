@@ -21,7 +21,7 @@ import { profile, experience, education, courses, certifications, skills, contac
 
     <div class="content-layout">
       <div class="anchor-block block-wide">
-        <AboutSection summary={profile.summary} />
+        <AboutSection summary={profile.summary} tinted />
       </div>
 
       <div id="experiencia" class="anchor-block block-wide">
@@ -37,7 +37,7 @@ import { profile, experience, education, courses, certifications, skills, contac
       </div>
 
       <div class="anchor-block">
-        <CertificationsSection items={certifications} />
+        <CertificationsSection items={certifications} tinted />
       </div>
 
       <div id="skills" class="anchor-block">
@@ -45,7 +45,7 @@ import { profile, experience, education, courses, certifications, skills, contac
       </div>
 
       <div id="contacto" class="anchor-block block-wide">
-        <ContactSection contact={contact} />
+        <ContactSection contact={contact} tinted />
       </div>
     </div>
   </main>

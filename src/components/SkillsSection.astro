@@ -20,7 +20,7 @@ const { items } = Astro.props;
     intro="Agrupacion pensada para lectura rapida por parte de equipos de seleccion tecnica, operaciones, cloud e infraestructura."
   />
 
-  <div class="skills-grid">
+  <div class="skills-grid reveal-stagger">
     {items.map((group) => (
       <article class="skill-card">
         <h3>{group.category}</h3>
@@ -43,6 +43,7 @@ const { items } = Astro.props;
   .skill-card {
     padding: 1.25rem;
     border: 1px solid var(--border-light);
+    border-top: 3px solid var(--card-accent, var(--border));
     border-radius: var(--radius-lg);
     background: var(--bg-card);
     box-shadow: var(--shadow-xs);
@@ -53,6 +54,14 @@ const { items } = Astro.props;
     transform: translateY(-2px);
     box-shadow: var(--shadow-glass);
   }
+
+  .skill-card:nth-child(1) { --card-accent: #059669; }
+  .skill-card:nth-child(2) { --card-accent: #0284c7; }
+  .skill-card:nth-child(3) { --card-accent: #6d28d9; }
+  .skill-card:nth-child(4) { --card-accent: #d97706; }
+  .skill-card:nth-child(5) { --card-accent: #0d9488; }
+  .skill-card:nth-child(6) { --card-accent: #db2777; }
+  .skill-card:nth-child(n+7) { --card-accent: var(--accent); }
 
   .skill-card h3 {
     margin: 0 0 0.875rem;

@@ -60,7 +60,9 @@ const { profile, contact } = Astro.props;
 
   <div class="hero-photo-card">
     <div class="hero-photo-frame">
-      <img src={profile.photo.src} alt={profile.photo.alt} width="560" height="700" loading="eager" />
+      <div class="hero-photo-inner">
+        <img src={profile.photo.src} alt={profile.photo.alt} width="560" height="700" loading="eager" />
+      </div>
     </div>
     <p class="hero-photo-note">Reemplaza esta imagen desde `src/content/profile.json` o actualizando el archivo en `public/images/`.</p>
   </div>
@@ -99,6 +101,10 @@ const { profile, contact } = Astro.props;
     line-height: 1.05;
     letter-spacing: -0.02em;
     color: var(--heading);
+    background: linear-gradient(135deg, var(--heading) 0%, #1e6b52 60%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .hero-headline {
@@ -209,11 +215,19 @@ const { profile, contact } = Astro.props;
   }
 
   .hero-photo-frame {
-    overflow: hidden;
-    border: 1px solid var(--border-light);
     border-radius: var(--radius-xl);
+    padding: 3px;
+    background: linear-gradient(145deg, rgba(5,150,105,0.5) 0%, rgba(5,150,105,0.15) 50%, var(--border-light) 100%);
+    box-shadow:
+      var(--shadow-lg),
+      0 0 40px rgba(5, 150, 105, 0.15),
+      0 0 80px rgba(5, 150, 105, 0.07);
+  }
+
+  .hero-photo-inner {
+    overflow: hidden;
+    border-radius: calc(var(--radius-xl) - 3px);
     background: var(--bg-card);
-    box-shadow: var(--shadow-lg);
   }
 
   .hero-photo-frame img {
@@ -221,6 +235,7 @@ const { profile, contact } = Astro.props;
     height: auto;
     aspect-ratio: 4 / 5;
     object-fit: cover;
+    display: block;
   }
 
   .hero-photo-note {

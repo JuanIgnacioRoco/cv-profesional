@@ -9,19 +9,20 @@ interface CertificationItem {
 
 interface Props {
   items: CertificationItem[];
+  tinted?: boolean;
 }
 
-const { items } = Astro.props;
+const { items, tinted } = Astro.props;
 ---
 
-<section class="section">
+<section class:list={["section", { "section-tinted": tinted }]}>
   <SectionHeading
     eyebrow="Certificaciones y especializaciones"
     title="Credenciales que refuerzan experiencia tecnica y criterio operativo"
     intro="Presentacion sobria para facilitar lectura rapida y validacion de especializacion por parte de reclutadores."
   />
 
-  <ul class="cert-grid tag-list">
+  <ul class="cert-grid tag-list reveal-stagger">
     {items.map((item) => (
       <li class="cert-card">
         <strong>{item.name}</strong>
@@ -38,20 +39,40 @@ const { items } = Astro.props;
   }
 
   .cert-card {
+    position: relative;
     display: grid;
     gap: 0.375rem;
-    padding: 1.125rem 1.25rem;
+    padding: 1.125rem 1.25rem 1.125rem 3.25rem;
     border: 1px solid var(--border-light);
+    border-left: 3px solid var(--border-light);
     border-radius: var(--radius-lg);
     background: var(--bg-card);
     box-shadow: var(--shadow-xs);
-    transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease, border-left-color 0.25s ease;
   }
 
   .cert-card:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-glass);
     border-color: var(--accent-subtle);
+    border-left-color: var(--accent);
+  }
+
+  .cert-card::before {
+    content: "";
+    position: absolute;
+    left: 0.875rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 6px;
+    background-color: var(--accent-light);
+    border: 1.5px solid var(--accent-subtle);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23047857'%3E%3Cpath d='M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7l-9-5z'/%3E%3C/svg%3E");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   .cert-card strong {

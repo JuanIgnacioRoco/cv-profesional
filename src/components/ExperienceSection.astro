@@ -25,7 +25,7 @@ const { items } = Astro.props;
     intro="Orden cronologico inverso con foco en cargos y responsabilidades vinculadas a cloud, continuidad operativa, soporte de plataformas criticas y automatizacion."
   />
 
-  <div class="timeline" role="list">
+  <div class="timeline reveal-stagger" role="list">
     {items.map((item) => (
       <article class={`timeline-item ${item.featured ? "is-featured" : ""}`} role="listitem">
         <div class="timeline-marker" aria-hidden="true"></div>
@@ -88,6 +88,7 @@ const { items } = Astro.props;
   }
 
   .timeline-card {
+    position: relative;
     padding: 1.25rem;
     border: 1px solid var(--border-light);
     border-radius: var(--radius-lg);
@@ -103,12 +104,29 @@ const { items } = Astro.props;
   }
 
   .is-featured .timeline-card {
-    background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-card-hover) 100%);
+    background: linear-gradient(135deg, rgba(5,150,105,0.04) 0%, var(--bg-card) 100%);
     border-color: var(--accent-subtle);
+    border-left: 3px solid var(--accent);
   }
 
   .is-featured .timeline-card:hover {
     border-color: var(--accent);
+    border-left-color: var(--accent);
+  }
+
+  .is-featured .timeline-card::before {
+    content: "Destacado";
+    position: absolute;
+    top: -1px;
+    right: 1rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .timeline-top {

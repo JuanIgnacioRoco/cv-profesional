@@ -8,12 +8,13 @@ interface Props {
     whatsapp: string;
     cta: string;
   };
+  tinted?: boolean;
 }
 
-const { contact } = Astro.props;
+const { contact, tinted } = Astro.props;
 ---
 
-<section class="section contact-section">
+<section class:list={["section", "contact-section", { "section-tinted": tinted }]}>
   <SectionHeading
     eyebrow="Contacto rapido"
     title="Canales directos para avanzar una conversacion profesional"
@@ -22,16 +23,40 @@ const { contact } = Astro.props;
 
   <div class="contact-actions">
     <a class="contact-link" href={`mailto:${contact.email}`}>
-      <span class="contact-label">Email</span>
-      <strong>{contact.email}</strong>
+      <span class="contact-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm0 2v.5l8 5 8-5V8l-8 5-8-5z" />
+        </svg>
+      </span>
+      <span class="contact-text">
+        <span class="contact-label">Email</span>
+        <strong>{contact.email}</strong>
+      </span>
+      <span class="contact-arrow" aria-hidden="true">→</span>
     </a>
     <a class="contact-link" href={contact.linkedin} target="_blank" rel="noreferrer">
-      <span class="contact-label">LinkedIn</span>
-      <strong>Ver perfil profesional</strong>
+      <span class="contact-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M6.5 8.5A1.5 1.5 0 1 1 6.5 5a1.5 1.5 0 0 1 0 3.5zM5 10h3v9H5v-9zm5 0h2.9v1.3h.1c.4-.8 1.4-1.6 3-1.6 3.2 0 3.8 2 3.8 4.7V19h-3v-4c0-1 0-2.3-1.5-2.3s-1.7 1.1-1.7 2.2V19h-3v-9z" />
+        </svg>
+      </span>
+      <span class="contact-text">
+        <span class="contact-label">LinkedIn</span>
+        <strong>Ver perfil profesional</strong>
+      </span>
+      <span class="contact-arrow" aria-hidden="true">→</span>
     </a>
     <a class="contact-link" href={contact.whatsapp} target="_blank" rel="noreferrer">
-      <span class="contact-label">WhatsApp</span>
-      <strong>Iniciar contacto</strong>
+      <span class="contact-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3zm0 16.2a7.2 7.2 0 0 1-3.7-1l-.3-.2-2.8.7.8-2.7-.2-.3a7.2 7.2 0 1 1 6.2 3.5zm3.9-5.4c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.6.1l-.5.7c-.1.2-.3.2-.5.1-1.4-.7-2.4-2-2.6-2.3-.1-.2 0-.3.1-.5l.4-.5c.1-.1.2-.3.3-.4.1-.1.1-.2 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.6.6-.9 1.3-.9 2.1 0 .8.6 1.7.7 1.8.1.1 1.4 2.2 3.5 3 .5.2 1 .3 1.3.4.6.2 1.1.1 1.5.1.5-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1-.1-.1-.3-.1-.5-.2z" />
+        </svg>
+      </span>
+      <span class="contact-text">
+        <span class="contact-label">WhatsApp</span>
+        <strong>Iniciar contacto</strong>
+      </span>
+      <span class="contact-arrow" aria-hidden="true">→</span>
     </a>
   </div>
 </section>
@@ -39,6 +64,8 @@ const { contact } = Astro.props;
 <style>
   .contact-section {
     overflow: hidden;
+    background: linear-gradient(135deg, #f0fdf8 0%, #ecfdf5 60%, #ffffff 100%);
+    border-color: rgba(5, 150, 105, 0.2);
   }
 
   .contact-section::after {
@@ -49,7 +76,7 @@ const { contact } = Astro.props;
     width: 12rem;
     height: 12rem;
     border-radius: 999px;
-    background: radial-gradient(circle, rgba(5, 150, 105, 0.06), transparent 70%);
+    background: radial-gradient(circle, rgba(5, 150, 105, 0.08), transparent 70%);
     pointer-events: none;
   }
 
@@ -61,12 +88,13 @@ const { contact } = Astro.props;
   }
 
   .contact-link {
-    display: grid;
-    gap: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     padding: 1.125rem 1.25rem;
     border: 1px solid var(--border-light);
     border-radius: var(--radius-lg);
-    background: var(--bg-card);
+    background: rgba(255, 255, 255, 0.8);
     box-shadow: var(--shadow-xs);
     transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
@@ -75,6 +103,37 @@ const { contact } = Astro.props;
     transform: translateY(-2px);
     border-color: var(--accent);
     box-shadow: var(--shadow-glass);
+    color: inherit;
+  }
+
+  .contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    border-radius: var(--radius-md);
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .contact-icon svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    fill: currentColor;
+  }
+
+  .contact-link:hover .contact-icon {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .contact-text {
+    display: grid;
+    gap: 0.2rem;
+    flex: 1;
   }
 
   .contact-label {
@@ -88,6 +147,18 @@ const { contact } = Astro.props;
   .contact-link strong {
     color: var(--heading);
     font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  .contact-arrow {
+    font-size: 1.125rem;
+    color: var(--text-light);
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .contact-link:hover .contact-arrow {
+    transform: translateX(4px);
+    color: var(--accent-dark);
   }
 
   @media (min-width: 768px) {
