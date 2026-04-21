@@ -111,7 +111,7 @@ const { items } = Astro.props;
   }
 
   .is-featured .timeline-card {
-    background: linear-gradient(135deg, rgba(5,150,105,0.04) 0%, var(--bg-card) 100%);
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.04) 0%, var(--bg-card) 100%);
     border-color: var(--accent-subtle);
     border-left: 3px solid var(--accent);
   }
@@ -144,7 +144,7 @@ const { items } = Astro.props;
 
   h3 {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Sora', sans-serif;
     font-size: 1.0625rem;
     font-weight: 600;
     color: var(--heading);
@@ -265,6 +265,16 @@ const { items } = Astro.props;
     left: 0;
     color: var(--accent);
     font-weight: 700;
+  }
+
+  @media (max-width: 767px) {
+    .timeline::before { display: none; }
+    .timeline-marker { display: none; }
+    .timeline { gap: 0.625rem; }
+    .timeline-item { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .timeline-card { padding: 0.875rem 1rem; border-left: 3px solid var(--accent-subtle); }
+    .timeline-card:hover { border-left-color: var(--accent); }
+    .is-featured .timeline-card { border-left: 3px solid var(--accent); }
   }
 
   @media (min-width: 768px) {
